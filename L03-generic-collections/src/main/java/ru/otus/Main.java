@@ -8,9 +8,16 @@ public class Main {
         DIYarrayList<String> dList1 = new DIYarrayList<String>();
         DIYarrayList<String> dList2 = new DIYarrayList<String>(50);
 
-        String[] strings = new String[50];
+        for (int i = 51; i <= 100; i++) {
+            dList2.add("");
+            if (dList2.size() != i) {
+                System.err.println("Illegal size: " + dList2.size());
+                break;
+            }
+        }
 
-        for (int i = 0; i<50; i++){
+        String[] strings = new String[100];
+        for (int i = 0; i<100; i++){
             strings[i] = Integer.toString(new Random().nextInt(100));
         }
 
