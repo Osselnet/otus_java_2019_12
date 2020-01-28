@@ -12,15 +12,16 @@ public class DIYarrayList<T> implements List<T> {
     transient Object[] elementData;
 
     public DIYarrayList() {
-        this.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
+        elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
     }
 
-    public DIYarrayList(int size) {
-        if (size >= 0) {
-            this.size = size;
-            elementData = new Object[size];
+    public DIYarrayList(int initialCapacity) {
+        if (initialCapacity >= 0) {
+            elementData = new Object[initialCapacity];
+        } else if (initialCapacity == 0) {
+            elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;
         } else {
-            throw new IllegalArgumentException("Illegal size: " + size);
+            throw new IllegalArgumentException("Illegal size: " + initialCapacity);
         }
     }
 
