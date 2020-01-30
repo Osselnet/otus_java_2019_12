@@ -1,0 +1,35 @@
+-Xms512m
+-Xmx512m
+-Xloggc:./logs/G1GC.log
+-XX:+HeapDumpOnOutOfMemoryError
+-XX:HeapDumpPath=./logs/dump
+-XX:+UseG1GC
+
+Printing GC stats once a minute:
+Young Generation. Name : G1 Young Generation, Count 15, Total duration : 82 ms, Avg duration : 5 ms
+Printing GC stats once a minute:
+Young Generation. Name : G1 Young Generation, Count 49, Total duration : 93 ms, Avg duration : 1 ms
+Old Generation. Name : G1 Old Generation, Count 2, Total duration : 109 ms, Avg duration : 54 ms
+java.lang.OutOfMemoryError: Java heap space
+____________________________________________________________________________________________________
+-XX:+UseSerialGC
+
+Young Generation. Name : Copy, Count 10, Total duration : 164 ms, Avg duration : 16 ms
+Old Generation. Name : MarkSweepCompact, Count 1, Total duration : 50 ms, Avg duration : 50 ms
+Printing GC stats once a minute:
+Young Generation. Name : Copy, Count 5, Total duration : 11 ms, Avg duration : 2 ms
+Old Generation. Name : MarkSweepCompact, Count 15, Total duration : 1058 ms, Avg duration : 70 ms
+java.lang.OutOfMemoryError: Java heap space
+____________________________________________________________________________________________________
+-XX:+UseParallelGC
+
+Printing GC stats once a minute:
+Young Generation. Name : PS Scavenge, Count 13, Total duration : 93 ms, Avg duration : 7 ms
+Old Generation. Name : PS MarkSweep, Count 1, Total duration : 32 ms, Avg duration : 32 ms
+Printing GC stats once a minute:
+Young Generation. Name : PS Scavenge, Count 11, Total duration : 47 ms, Avg duration : 4 ms
+Old Generation. Name : PS MarkSweep, Count 22, Total duration : 935 ms, Avg duration : 42 ms
+java.lang.OutOfMemoryError: GC overhead limit exceeded
+____________________________________________________________________________________________________
+
+
