@@ -6,9 +6,9 @@ import java.lang.management.ManagementFactory;
 
 // -Xms256m
 // -Xmx256m
-// -Xloggc:./hw05_GC/logs/SerialGC.log
+// -Xloggc:./L06_gc/logs/SerialGC.log
 // -XX:+HeapDumpOnOutOfMemoryError
-// -XX:HeapDumpPath=./logs/dump
+// -XX:HeapDumpPath=./L06_gc/logs/dump
 
 // -XX:+UseSerialGC
 // -XX:+UseParallelGC

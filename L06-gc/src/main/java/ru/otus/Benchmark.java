@@ -46,7 +46,7 @@ public class Benchmark implements BenchmarkMBean {
             for (int i = 0; i < size / 2; i++) {
                 array.remove(i);
             }
-            Thread.sleep(600);
+            Thread.sleep(500);
         }
     }
 
