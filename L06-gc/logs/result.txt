@@ -1,36 +1,49 @@
--Xms512m
--Xmx512m
+-Xms1536m
+-Xmx1536m
 -Xloggc:./logs/G1GC.log
 -XX:+HeapDumpOnOutOfMemoryError
 -XX:HeapDumpPath=./logs/dump
 -XX:+UseG1GC
 
 Printing GC stats once a minute:
-Young Generation. Name : G1 Young Generation, Count 15, Total duration : 82 ms, Avg duration : 5 ms
+Young Generation. Name : G1 Young Generation, Count 11, Total duration : 519 ms, Avg duration : 47 ms, Speed of operation: 7769 KB/ms
 Printing GC stats once a minute:
-Young Generation. Name : G1 Young Generation, Count 55, Total duration : 133 ms, Avg duration : 2 ms
-Old Generation. Name : G1 Old Generation, Count 81, Total duration : 3441 ms, Avg duration : 42 ms
+Young Generation. Name : G1 Young Generation, Count 11, Total duration : 147 ms, Avg duration : 13 ms, Speed of operation: 7568 KB/ms
+Printing GC stats once a minute:
+Young Generation. Name : G1 Young Generation, Count 14, Total duration : 120 ms, Avg duration : 8 ms, Speed of operation: 6237 KB/ms
+Printing GC stats once a minute:
+Young Generation. Name : G1 Young Generation, Count 14, Total duration : 99 ms, Avg duration : 7 ms, Speed of operation: 6217 KB/ms
+Old Generation. Name : G1 Old Generation, Count 1, Total duration : 296 ms, Avg duration : 296 ms, Speed of operation: 576 KB/ms
+Printing GC stats once a minute:
+Young Generation. Name : G1 Young Generation, Count 31, Total duration : 120 ms, Avg duration : 3 ms, Speed of operation: 3264 KB/ms
+Old Generation. Name : G1 Old Generation, Count 28, Total duration : 7730 ms, Avg duration : 276 ms, Speed of operation: 380 KB/ms
 java.lang.OutOfMemoryError: Java heap space
 ____________________________________________________________________________________________________
 -XX:+UseSerialGC
 
-Young Generation. Name : Copy, Count 10, Total duration : 164 ms, Avg duration : 16 ms
-Old Generation. Name : MarkSweepCompact, Count 1, Total duration : 50 ms, Avg duration : 50 ms
 Printing GC stats once a minute:
-Young Generation. Name : Copy, Count 5, Total duration : 11 ms, Avg duration : 2 ms
-Old Generation. Name : MarkSweepCompact, Count 15, Total duration : 1058 ms, Avg duration : 70 ms
+Young Generation. Name : Copy, Count 12, Total duration : 1036 ms, Avg duration : 86 ms, Speed of operation: 4797 KB/ms
+Old Generation. Name : MarkSweepCompact, Count 2, Total duration : 619 ms, Avg duration : 309 ms, Speed of operation: 2548 KB/ms
+Printing GC stats once a minute:
+Young Generation. Name : Copy, Count 3, Total duration : 0 ms, Avg duration : 0 ms, Speed of operation: 0 KB/ms
+Old Generation. Name : MarkSweepCompact, Count 4, Total duration : 1587 ms, Avg duration : 396 ms, Speed of operation: 898 KB/ms
+Printing GC stats once a minute:
+Old Generation. Name : MarkSweepCompact, Count 3, Total duration : 1252 ms, Avg duration : 417 ms, Speed of operation: 698 KB/ms
+Printing GC stats once a minute:
+Old Generation. Name : MarkSweepCompact, Count 11, Total duration : 4240 ms, Avg duration : 385 ms, Speed of operation: 334 KB/ms
 java.lang.OutOfMemoryError: Java heap space
 ____________________________________________________________________________________________________
 -XX:+UseParallelGC
 
+Young Generation. Name : PS Scavenge, Count 22, Total duration : 755 ms, Avg duration : 34 ms, Speed of operation: 11726 KB/ms
+Old Generation. Name : PS MarkSweep, Count 3, Total duration : 837 ms, Avg duration : 279 ms, Speed of operation: 978 KB/ms
 Printing GC stats once a minute:
-Young Generation. Name : PS Scavenge, Count 13, Total duration : 110 ms, Avg duration : 8 ms
-Old Generation. Name : PS MarkSweep, Count 1, Total duration : 40 ms, Avg duration : 40 ms
-Printing GC stats once a minute:
-Young Generation. Name : PS Scavenge, Count 11, Total duration : 49 ms, Avg duration : 4 ms
-Old Generation. Name : PS MarkSweep, Count 20, Total duration : 894 ms, Avg duration : 44 ms
-java.lang.OutOfMemoryError: Java heap space
+Young Generation. Name : PS Scavenge, Count 2, Total duration : 42 ms, Avg duration : 21 ms, Speed of operation: 7692 KB/ms
+Old Generation. Name : PS MarkSweep, Count 8, Total duration : 1667 ms, Avg duration : 208 ms, Speed of operation: 341 KB/ms
+java.lang.OutOfMemoryError: GC overhead limit exceeded
 ____________________________________________________________________________________________________
 
 Если взять в качестве критерия Avg duration и сравнить время со всеми тремя GC, то лучший результат покажет G1.
- 
+При сравнии по двум критериям, видно, что скорость работы с памятью у ParallelGC выше, чем у G1, но и OutOfMemoryError наступает значительно
+раньше, чем у G1.
+Отсюда можно сделать вывод о том, что G1 показывает в общем, лучший результат на моем компьтере, чем остальные сборщики мусора.
