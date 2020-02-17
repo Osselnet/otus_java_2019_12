@@ -36,7 +36,7 @@ public class Benchmark implements BenchmarkMBean {
             public void run() {
                 System.exit(0);
             }
-        }, 190000);
+        }, 310000);
 
         List<String> array = new ArrayList<>();
         while (true) {
@@ -46,7 +46,7 @@ public class Benchmark implements BenchmarkMBean {
             for (int i = 0; i < size / 2; i++) {
                 array.remove(i);
             }
-            Thread.sleep(500);
+            //Thread.sleep(500);
         }
     }
 
