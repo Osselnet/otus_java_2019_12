@@ -7,4 +7,6 @@ public interface MyinterfacClass {
     void calcul2(int n);
 
     void zaraza(int s);
+
+    void calcul2(int n, int e);
 }
