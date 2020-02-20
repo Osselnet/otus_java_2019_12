@@ -25,6 +25,7 @@
         <module>L03-generic-collections</module>
         <module>L06-gc</module>
         <module>L08-byteCodes</module>
+        <module>L09-annotations</module>
     </modules>
 
     <properties>
