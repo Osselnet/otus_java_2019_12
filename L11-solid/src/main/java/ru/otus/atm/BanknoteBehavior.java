@@ -9,15 +9,15 @@ import java.util.stream.Collectors;
 
 public class BanknoteBehavior implements CashOutBehavior{
     @Override
-    public BundleOfBanknotes getBundleToCashOut(Currency currency, int summ, List<Cassette> cassettes) {
+    public BundleOfBanknotes getBundleToCashOut(Currency currency, int summ, List<CassetteImpl> cassettes) {
         cassettes.sort(Comparator.comparing(cassette -> cassette.getUsedBanknote().getNominal().getValue()));
-        List<Cassette> mutableCassettes = cassettes.stream()
+        List<CassetteImpl> mutableCassettes = cassettes.stream()
                 .filter(cassette -> cassette.getUsedBanknote().getCurrency() == currency)
                 .sorted(Comparator.comparing(cassette -> cassette.getUsedBanknote().getNominal().getValue()))
                 .collect(Collectors.toList());
         Collections.reverse(mutableCassettes);
         BundleOfBanknotes resultBundle = new BundleOfBanknotes();
-        for(Cassette cassette: mutableCassettes){
+        for(CassetteImpl cassette: mutableCassettes){
             int countInCassette = cassette.getCountBanknotes();
             while (countInCassette > 0 && cassette.getUsedBanknote().getNominal().getValue() <= summ && summ > 0){
                 resultBundle.addBanknotes(cassette.getUsedBanknote(), 1);

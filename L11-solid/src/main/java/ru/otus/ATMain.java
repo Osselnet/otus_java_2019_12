@@ -7,16 +7,16 @@ public class ATMain {
 
     public static void main(String[] args){
 
-        Cassette cassetteRub = new Cassette(new BanknoteImpl(Currency.RUB, Nominal.FIFTY));
+        CassetteImpl cassetteRub = new CassetteImpl(new BanknoteImpl(Currency.RUB, Nominal.FIFTY));
         cassetteRub.addBanknotes(30);
 
-        Cassette cassetteRubSecond = new Cassette(new BanknoteImpl(Currency.RUB, Nominal.HUNDRED));
+        CassetteImpl cassetteRubSecond = new CassetteImpl(new BanknoteImpl(Currency.RUB, Nominal.HUNDRED));
         cassetteRubSecond.addBanknotes(6);
 
-        Cassette cassetteUsd = new Cassette(new BanknoteImpl(Currency.USD, Nominal.FIFTY));
+        CassetteImpl cassetteUsd = new CassetteImpl(new BanknoteImpl(Currency.USD, Nominal.FIFTY));
         cassetteUsd.addBanknotes(16);
 
-        ATM atm = new ATM();
+        ATMImpl atm = new ATMImpl();
         atm.setCashOutBehavior(new BanknoteBehavior());
         atm.loadCassette(cassetteRub);
         atm.loadCassette(cassetteRubSecond);
