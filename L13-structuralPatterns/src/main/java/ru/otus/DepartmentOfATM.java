@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class DepartmentOfATM {
-    private Set<AbstractATM> atms;
+    private Set<ATM> atms;
     private Command offCmd;
     private Command onCmd;
     private ObserverATM observerATM;
@@ -23,15 +23,15 @@ public class DepartmentOfATM {
         observerATM = new ObserverATMImpl();
     }
 
-    public void addATM(AbstractATM atm){
+    public void addATM(ATM atm){
         atms.add(atm);
-        observerATM.addListener(atm);
+        observerATM.addListener((Listener) atm);
     }
 
     public String getBalanceSummary(){
         String message = "Общий баланс банкоматов\n";
         Map<Currency, Integer> mapBalances = new HashMap<>();
-        for(AbstractATM atm : atms){
+        for(ATM atm : atms){
             Map<Currency, Integer> atmBalance = atm.getBalance();
             atmBalance.forEach((key, value) -> mapBalances.put(
                     key,

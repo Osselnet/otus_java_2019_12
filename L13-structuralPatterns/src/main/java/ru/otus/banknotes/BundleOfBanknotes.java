@@ -1,9 +1,10 @@
 package ru.otus.banknotes;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class BundleOfBanknotes {
+public class BundleOfBanknotes implements Serializable {
 
     private final Map<Banknote, Integer> banknotes = new HashMap<>();
 

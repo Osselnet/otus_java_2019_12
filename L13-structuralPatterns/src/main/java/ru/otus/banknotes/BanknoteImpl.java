@@ -1,6 +1,8 @@
 package ru.otus.banknotes;
 
-public class BanknoteImpl implements Banknote {
+import java.io.Serializable;
+
+public class BanknoteImpl implements Banknote, Serializable {
 
     private Nominal nominal;
     private Currency currency;
